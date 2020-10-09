@@ -5,7 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -20,6 +23,21 @@ public class MainActivity2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+        TextView name = findViewById(R.id.name);
+        TextView code = findViewById(R.id.mail);
+
+        GoogleSignInAccount signInAccount = GoogleSignIn.getLastSignedInAccount(this);
+        if(signInAccount != null){
+
+            name.setText(signInAccount.getDisplayName());
+            code.setText(signInAccount.getId());
+            Log.d(TAG, signInAccount.getDisplayName() + " and ID => " + signInAccount.getId());
+        }
+
+
+
+
+/*
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         final Task<QuerySnapshot> user = db.collection("user")
@@ -35,6 +53,6 @@ public class MainActivity2 extends AppCompatActivity {
                             Log.w(TAG, "Error getting documents.", task.getException());
                         }
                     }
-                });
+                });*/
     }
 }
