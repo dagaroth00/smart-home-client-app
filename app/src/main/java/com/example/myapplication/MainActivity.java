@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         super.onStart();
 
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        updateUI(currentUser);
+        //updateUI(currentUser);
     }
 
     private void signIn() {
@@ -137,7 +137,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
 public void ug(View view){
 
-    Intent i2 = new Intent(MainActivity.this,MainActivity2.class);
+    Intent i2 = new Intent(MainActivity.this,Dashboard.class);
     startActivity(i2);
 }
 
