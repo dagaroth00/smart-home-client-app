@@ -40,8 +40,8 @@
                 android:textSize="18sp" />
 
             <ImageView
+                android:id="@+id/dp"
                 android:layout_width="62dp"
-
                 android:layout_height="62dp"
                 android:layout_alignParentRight="true"
                 android:contentDescription="TODO"
@@ -59,6 +59,7 @@
             android:useDefaultMargins="false">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/station"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
@@ -68,6 +69,7 @@
                 app:cardElevation="6dp">
 
                 <LinearLayout
+
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
@@ -91,6 +93,7 @@
 
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/router"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
@@ -100,6 +103,7 @@
                 app:cardElevation="6dp">
 
                 <LinearLayout
+
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
@@ -122,6 +126,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/users"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
@@ -131,6 +136,7 @@
                 app:cardElevation="6dp">
 
                 <LinearLayout
+
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
