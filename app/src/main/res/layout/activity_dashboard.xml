@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="#0F2A2E59"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Dashboard">
@@ -79,7 +81,7 @@
                     <ImageView
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        app:srcCompat="@drawable/userr" />
+                        app:srcCompat="@drawable/ic_baseline_wifi_tethering_24" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -113,7 +115,7 @@
                     <ImageView
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        app:srcCompat="@drawable/userr" />
+                        app:srcCompat="@drawable/ic_baseline_router" />
 
                     <TextView
                         android:layout_width="wrap_content"

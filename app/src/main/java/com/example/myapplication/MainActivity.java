@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -20,6 +22,8 @@ import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
@@ -28,6 +32,12 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener{
     private static final int RC_SIGN_IN = 1;
@@ -37,6 +47,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     private GoogleSignInApi mGoogleSignInClient;
     private GoogleApiClient googleApiClient;
 // ...
+
+    FirebaseFirestore db =  FirebaseFirestore.getInstance();
 
 
 
@@ -66,8 +78,19 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                // Toast.makeText(this,"one",Toast.LENGTH_LONG);
                 Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(googleApiClient);
                 startActivityForResult(signInIntent, RC_SIGN_IN);
+
             }
         });
+        Button signOut = findViewById(R.id.signOut);
+       signOut.setOnClickListener(new View.OnClickListener(){
+
+           @Override
+           public void onClick(View v) {
+               FirebaseAuth.getInstance().signOut();
+               Toast.makeText(getApplicationContext() ,"Logged Out Successfully ",Toast.LENGTH_LONG).show();
+
+           }
+       });
 
     }
 
@@ -120,9 +143,9 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
-                           // Snackbar.make(this , "Authentication Failed.", Snackbar.LENGTH_SHORT).show();
-                          //  Snackbar.make(new View,"failed", Snackbar.LENGTH_LONG )
-                            updateUI(null);
+                            Toast.makeText(getApplicationContext() ,"Login Failed ",Toast.LENGTH_LONG).show();
+
+
                         }
 
                         // ...
@@ -130,7 +153,31 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                 });
     }
     public void updateUI(FirebaseUser user){
-        
+        user.getUid();
+        TextView name = findViewById(R.id.name);
+        name.setText(user.getUid());
+        Map<String, Object> uData = new HashMap<>();
+        uData.put("name", "siddhesh" );
+        uData.put("baseStationId", "0002");
+        uData.put("ID", user.getUid());
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("user").document(user.getUid())
+                .set(uData)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d(TAG, "DocumentSnapshot successfully written!");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w(TAG, "Error writing document", e);
+                    }
+                });
+
+
         Intent i2 = new Intent(MainActivity.this,MainActivity2.class);
         startActivity(i2);
     }
