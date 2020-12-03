@@ -91,7 +91,15 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
            }
        });
+        Button testOut = findViewById(R.id.testOut);
+        testOut.setOnClickListener(new View.OnClickListener(){
 
+            @Override
+            public void onClick(View v) {
+               startActivity(new Intent(MainActivity.this,NewRouter.class));
+
+            }
+        });
     }
 
     @Override
@@ -157,7 +165,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         TextView name = findViewById(R.id.name);
         name.setText(user.getUid());
         Map<String, Object> uData = new HashMap<>();
-        uData.put("name", "siddhesh" );
+        uData.put("name", user.getDisplayName());
         uData.put("baseStationId", "0002");
         uData.put("ID", user.getUid());
 

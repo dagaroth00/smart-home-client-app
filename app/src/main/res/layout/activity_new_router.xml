@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".NewRouter">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    >
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/TextField_BaseStationId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Base Station Id"
+        app:boxStrokeColor="#6014E8"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
+<!--        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/base_station_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/TextField_Router_Name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Room Name"
+        app:boxStrokeColor="#6014E8"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
+<!--        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/Room_Name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/TextField_Router_Id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Substation Id"
+        app:boxStrokeColor="#6014E8"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
+<!--        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/Substation_Id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+<!--    <com.google.android.material.button.MaterialButton-->
+       <Button android:id="@+id/Button_Add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add"
+        android:textSize="15sp"
+        android:textColor="#ffffff"
+        android:layout_gravity="center"
+        android:background="@color/colorPrimary"/>
+
+</LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
