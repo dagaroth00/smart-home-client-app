@@ -59,7 +59,8 @@ public class Router extends AppCompatActivity {
                 ).show();
                 String subStationId = documentSnapshot.getReference().getPath();
                 Intent intent = new Intent(getApplicationContext(), Appliances.class);
-                intent.putExtra("message_key", subStationId);
+               // intent.putExtra("message_key", subStationId);
+                intent.putExtra("message_key", documentSnapshot.getId());
                 startActivity(intent);
             }
         });

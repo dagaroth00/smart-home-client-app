@@ -87,7 +87,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:text="Base "
+                        android:text="Base Station "
                         android:textColor="#470606"
                         android:textSize="18sp" />
                 </LinearLayout>
@@ -121,7 +121,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:text="Router"
+                        android:text="Sub Station"
                         android:textColor="#6f6f6f"
                         android:textSize="18sp" />
                 </LinearLayout>

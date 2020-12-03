@@ -45,15 +45,15 @@
                 android:textSize="16sp" />
 
         </LinearLayout>
-<TextView
-    android:id="@+id/appliance_status"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="on"
-    android:padding="10dp"
-    android:textSize="20sp"
-    android:layout_marginLeft="150dp"
-    />
+        <TextView
+            android:id="@+id/appliance_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="on"
+            android:padding="10dp"
+            android:textSize="20sp"
+            android:layout_marginLeft="150dp"
+            />
 
 
     </LinearLayout>
