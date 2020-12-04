@@ -35,12 +35,14 @@ public class Router extends AppCompatActivity {
                 startActivity(new Intent(Router.this,NewRouter.class));
             }
         });
+        Intent intent = getIntent();
+        String str = intent.getStringExtra("message_key");
 
-        setUpRecyclerView();
+        setUpRecyclerView(str);
     }
 
-    private void setUpRecyclerView(){
-        Query query  = routerRef.whereEqualTo("baseStationId","0002");
+    private void setUpRecyclerView(String str){
+        Query query  = routerRef.whereEqualTo("baseStationId",str);
         ///Query query = routerRef;
         FirestoreRecyclerOptions<RouterItem> options = new FirestoreRecyclerOptions.Builder<RouterItem>()
                 .setQuery(query,RouterItem.class)
