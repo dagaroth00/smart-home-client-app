@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
             @Override
             public void onClick(View v) {
-               startActivity(new Intent(MainActivity.this,NewRouter.class));
+               startActivity(new Intent(MainActivity.this,NewBaseStation.class));
 
             }
         });

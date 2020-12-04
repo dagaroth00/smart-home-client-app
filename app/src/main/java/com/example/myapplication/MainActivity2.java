@@ -38,7 +38,7 @@ public class MainActivity2 extends AppCompatActivity {
             code.setText(signInAccount.getId());
             Log.d(TAG, signInAccount.getDisplayName() + " and ID => " + signInAccount.getId());
 
-            DocumentReference docRef = db.collection("user").document(signInAccount.getId());
+            DocumentReference docRef = db.collection("Users").document(signInAccount.getId());
             docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {

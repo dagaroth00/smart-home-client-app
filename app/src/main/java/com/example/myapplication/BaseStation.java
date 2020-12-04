@@ -11,6 +11,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
@@ -30,16 +32,20 @@ public class BaseStation extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base_station);
 
-        setUpRecyclerView();
+        GoogleSignInAccount signInAccount = GoogleSignIn.getLastSignedInAccount(this);
+        if(signInAccount != null) {
+            Toast.makeText(this, "user  " + signInAccount.getId() + " ", Toast.LENGTH_LONG).show();
 
+            setUpRecyclerView(signInAccount.getId());
+        }
     }
 
 
-    private void setUpRecyclerView(){
+    private void setUpRecyclerView(String base){
         //FirebaseUser user =  mAuth.getCurrentUser();
 
         ///assert user != null;
-        Query query  = routerRef.whereEqualTo("baseStationId","0002");
+        Query query  = routerRef.whereEqualTo("userId",base);
         ///Query query = routerRef;
         FirestoreRecyclerOptions<BaseStationItem> options = new FirestoreRecyclerOptions.Builder<BaseStationItem>()
                 .setQuery(query,BaseStationItem.class)
