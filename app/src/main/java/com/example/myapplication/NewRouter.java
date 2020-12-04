@@ -89,6 +89,9 @@ public class NewRouter extends AppCompatActivity {
         baseStationId.setText("");
         roomName.setText("");
 
-        startActivity(new Intent(NewRouter.this, Router.class));
+        Intent intent = new Intent(NewRouter.this, Router.class);
+        intent.putExtra("message_key", String.valueOf(baseStationId.getText()));
+        startActivity(intent);
+
     }
 }

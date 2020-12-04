@@ -88,12 +88,7 @@ public class NewBaseStation extends AppCompatActivity {
                     public void onSuccess(Void aVoid) {
                         Log.d(TAG, "DocumentSnapshot successfully written!");
 
-
-//                        baseStationName.setText("");
-//                        baseStationId.setText("");
-//
-//                        startActivity(new Intent(NewBaseStation.this, BaseStation.class));
-                    }
+            }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -102,7 +97,14 @@ public class NewBaseStation extends AppCompatActivity {
                     }
                 });
 
-    }
+
+                        baseStationName.setText("");
+                        baseStationId.setText("");
+
+                        startActivity(new Intent(NewBaseStation.this, BaseStation.class));
+
+
+     }
 
     @Override
     protected void onStart() {
