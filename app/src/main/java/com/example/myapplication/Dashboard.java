@@ -70,7 +70,7 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
                 break;
             case R.id.users :
                 Toast.makeText(getApplicationContext(), "users",Toast.LENGTH_LONG).show();
-                i = new Intent(this, Users.class);
+                i = new Intent(this, Appliances.class);
                 break;
 
             default:

@@ -37,7 +37,7 @@ public class Router extends AppCompatActivity {
         });
         Intent intent = getIntent();
         String str = intent.getStringExtra("message_key");
-
+        if("".equals(str)) str="002";
         setUpRecyclerView(str);
     }
 
