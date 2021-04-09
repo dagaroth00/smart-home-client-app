@@ -85,6 +85,7 @@ public class NewRouter extends AppCompatActivity {
                     }
                 });
 
+        addApp();
         subStationId.setText("");
         baseStationId.setText("");
         roomName.setText("");
@@ -94,4 +95,33 @@ public class NewRouter extends AppCompatActivity {
         startActivity(intent);
 
     }
+
+    void addApp(){
+        Map<String, Object> uData = new HashMap<>();
+
+        for(int i=1 ; i<5; i++) {
+            uData.put("routerId", String.valueOf(subStationId.getText()));
+            uData.put("deviceName", "Device "+i);
+            uData.put("status", "on");
+
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+            db.collection("Appliances").document()
+                    .set(uData)
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Log.d(TAG, "DocumentSnapshot successfully written!");
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.w(TAG, "Error writing document", e);
+                        }
+                    });
+
+            uData.clear();
+        }
+    }
+
 }

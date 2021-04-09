@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
            }
        });
-        Button testOut = findViewById(R.id.testOut);
+       /* Button testOut = findViewById(R.id.testOut);
         testOut.setOnClickListener(new View.OnClickListener(){
 
             @Override
@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                startActivity(new Intent(MainActivity.this,NewBaseStation.class));
 
             }
-        });
+        });*/
     }
 
     @Override
@@ -186,7 +186,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                 });
 
 
-        Intent i2 = new Intent(MainActivity.this,MainActivity2.class);
+        Intent i2 = new Intent(MainActivity.this,Dashboard.class);
         startActivity(i2);
     }
 
