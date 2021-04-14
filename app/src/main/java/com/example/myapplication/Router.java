@@ -99,8 +99,12 @@ String base;
                 setUpRecyclerView(str[0]);
             }
         }*/
-
-        setUpRecyclerView(str);
+        if (str == null) {
+            str = "6655";
+            setUpRecyclerView(str);
+        }else {
+            setUpRecyclerView(str);
+        }
     }
 
     private void setUpRecyclerView(String str){
